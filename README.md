@@ -1,36 +1,149 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Witchly Marketplace – Product Listing
+
+A responsive product listing application built with **Next.js, React, TypeScript, and Tailwind CSS** as part of a Frontend Technical Assessment.
+
+The application allows users to browse products, search by title, filter by category and price range, sort products, and manage their favorite items.
+
+## Features
+
+- **Product Listing:** Display products using reusable product cards.
+- **Search:** Search products by title.
+- **Category Filter:** Filter products by category.
+- **Price Filter:** Filter products using minimum and maximum prices.
+- **Sorting:** Sort products by price and rating in ascending or descending order.
+- **Pagination:** Display 8 products per page.
+- **Favorites:** Add and remove products from favorites.
+- **Loading State:** Display a loading indicator while fetching products.
+- **Error Handling:** Display error notifications using Sonner if product fetching fails.
+- **Responsive Design:** Adapt the layout to different screen sizes.
+
+## Tech Stack
+
+- **Next.js 16** – React framework
+- **React 19** – UI development
+- **TypeScript** – Type safety
+- **Tailwind CSS 4** – Styling
+- **Axios** – HTTP requests
+- **Sonner** – Toast notifications
+- **Lucide React** – Icons
+- **JSON Server** – Mock REST API
+- **Cloudflare Workers** – Deployment platform
+
+## Project Structure
+
+```text
+product-listing-app/
+├── public/
+│   ├── images/
+│   │   └── product-placeholder.svg
+│   └── _headers
+│
+├── src/
+│   ├── app/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   │
+│   └── features/
+│       └── products/
+│           ├── api/
+│           │   └── products.api.ts
+│           │
+│           ├── components/
+│           │   ├── CategoryFilter.tsx
+│           │   ├── Pagination.tsx
+│           │   ├── PriceFilter.tsx
+│           │   ├── ProductCard.tsx
+│           │   ├── ProductList.tsx
+│           │   ├── SearchBar.tsx
+│           │   └── SortFilter.tsx
+│           │
+│           ├── hooks/
+│           │   ├── useProductFilter.ts
+│           │   └── useProducts.ts
+│           │
+│           └── types/
+│               └── product.types.ts
+│
+├── package.json
+└── README.md
+```
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
+
+```bash
+git clone YOUR_REPOSITORY_URL
+```
+
+### 2. Navigate to the project directory
+
+```bash
+cd product-listing-app
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## API
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Product data is fetched from a mock REST API hosted on Render.
 
-## Learn More
+**API Base URL:**
 
-To learn more about Next.js, take a look at the following resources:
+```text
+https://product-listing-app-jd72.onrender.com
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Products endpoint:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+GET /products
+```
 
-## Deploy on Vercel
+Axios is used to send HTTP requests, while the `useProducts` hook manages the loading state and product data.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project Architecture
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The project follows a feature-based folder structure.
+
+- **API:** Handles communication with the products endpoint.
+- **Hooks:** Contains product fetching and filtering logic.
+- **Components:** Contains reusable UI components.
+- **Types:** Defines TypeScript interfaces for product data.
+
+This structure helps separate data fetching, business logic, and UI components, making the code easier to maintain and extend.
+
+## Deployment
+
+The project uses OpenNext for Cloudflare Workers deployment.
+
+To build and preview the application:
+
+```bash
+npm run preview
+```
+
+To deploy the application:
+
+```bash
+npm run deploy
+```
+
+## Author
+
+Frontend Developer
+
+Built as part of the Witchly Marketplace Frontend Technical Assessment.
