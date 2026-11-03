@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const nextConfig: NextConfig = {
-  cacheComponents: true,
-  partialPrefetching: true,
+  cacheComponents: false,
 
   images: {
     remotePatterns: [
@@ -23,6 +23,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+initOpenNextCloudflareForDev();
 
-import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
+export default nextConfig;
